@@ -146,19 +146,6 @@ index f3b623967436..204f33f2835c 100644
  	/* If we are really being abused, tell the caller to silently
  	 * drop receive data on the floor.  It will get retransmitted
  	 * and hopefully then we'll have sufficient space.
-diff --git a/net/ipv4/tcp_ipv4.c b/net/ipv4/tcp_ipv4.c
-index 0fe9461647da..4fadbf38525f 100644
---- a/net/ipv4/tcp_ipv4.c
-+++ b/net/ipv4/tcp_ipv4.c
-@@ -3218,6 +3218,8 @@ static int __net_init tcp_sk_init(struct net *net)
- 	else
- 		net->ipv4.tcp_congestion_control = &tcp_reno;
- 
-+	net->ipv4.sysctl_tcp_collapse_max_bytes = 0;
-+
- 	return 0;
- fail:
- 	tcp_sk_exit(net);
 -- 
 2.35.1
 
